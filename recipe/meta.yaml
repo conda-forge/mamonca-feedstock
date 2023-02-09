@@ -26,7 +26,6 @@ requirements:
     - cython
     - pip
   run:
-    - llvm-openmp  # [osx]
     - python
     - numpy
 

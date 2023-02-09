@@ -8,6 +8,8 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/mamonca-{{ version }}.tar.gz
   sha256: e01df7aeb53de31e701b9459bdfb3676bfe90cae1967f521371f211809959129
+  patches:
+    - setup.patch  # [osx]
 
 build:
   script: {{ PYTHON }} -m pip install . -vv

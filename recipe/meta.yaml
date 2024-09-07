@@ -1,5 +1,5 @@
 {% set name = "mamonca" %}
-{% set version = "0.0.7" %}
+{% set version = "0.0.8" %}
 
 package:
   name: {{ name|lower }}
@@ -7,11 +7,11 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/mamonca-{{ version }}.tar.gz
-  sha256: c1c928a3542ffb65c233b517d4c4e9e84683f27b0548353792c594cb0cc4ea9d
+  sha256: f238b958604f49934fbe72638864ed89dcc2e3909750c5de51dd47c28948ada8
 
 build:
   script: {{ PYTHON }} -m pip install . -vv
-  number: 3
+  number: 0
   skip: true  # [not linux]
 
 requirements:
@@ -25,6 +25,7 @@ requirements:
     - cython
     - setuptools
     - pip
+    - numpy
   run:
     - python
     - numpy

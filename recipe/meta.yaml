@@ -6,12 +6,12 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/mamonca-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/mamonca-{{ version }}.tar.gz
   sha256: f238b958604f49934fbe72638864ed89dcc2e3909750c5de51dd47c28948ada8
 
 build:
   script: {{ PYTHON }} -m pip install . -vv
-  number: 1
+  number: 2
   skip: true  # [not linux]
 
 requirements:

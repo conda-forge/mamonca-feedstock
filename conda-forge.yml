@@ -6,3 +6,5 @@ conda_build:
 conda_forge_output_validation: true
 bot:
   automerge: true
+conda_install_tool: pixi
+conda_build_tool: rattler-build

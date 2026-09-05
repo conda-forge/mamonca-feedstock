@@ -1,0 +1,53 @@
+schema_version: 1
+
+context:
+  name: mamonca
+  version: "0.0.8"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/mamonca-${{ version }}.tar.gz
+  sha256: f238b958604f49934fbe72638864ed89dcc2e3909750c5de51dd47c28948ada8
+
+build:
+  number: 3
+  skip: not linux
+  script: ${{ PYTHON }} -m pip install . -vv
+
+requirements:
+  build:
+    - ${{ compiler('cxx') }}
+    - ${{ stdlib("c") }}
+    - if: osx
+      then: llvm-openmp
+    - if: linux
+      then: libgomp
+  host:
+    - python
+    - cython
+    - setuptools
+    - pip
+    - numpy
+  run:
+    - python
+    - numpy
+
+tests:
+  - python:
+      imports:
+        - mamonca
+      pip_check: true
+
+about:
+  summary: mamonca - interactive Magnetic Monte Carlo
+  license: BSD-3-Clause
+  license_file: LICENSE.md
+  homepage: https://github.com/samwaseda/mamonca
+
+extra:
+  recipe-maintainers:
+    - samwaseda
+    - jan-janssen
